@@ -29,6 +29,7 @@
 
     <TargetsWindows Condition="$(Configuration.StartsWith('Windows'))">true</TargetsWindows>
     <TargetsUbuntu Condition="$(Configuration.StartsWith('Ubuntu'))">true</TargetsUbuntu>
+    <TargetsOSX Condition="$(Configuration.StartsWith('OSX'))">true</TargetsOSX>
   </PropertyGroup>
 
   <!-- Set up Default symbol and optimization for Configuration -->
@@ -49,8 +50,12 @@
     <BaseNuGetRuntimeIdentifier>win10</BaseNuGetRuntimeIdentifier>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetsUbuntu)' == 'true' Or '$(TargetsWindows)' == 'false'">
+  <PropertyGroup Condition="'$(TargetsUbuntu)' == 'true'">
     <BaseNuGetRuntimeIdentifier>ubuntu.14.04</BaseNuGetRuntimeIdentifier>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetsOSX)' == 'true'">
+    <BaseNuGetRuntimeIdentifier>osx.10.10</BaseNuGetRuntimeIdentifier>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Platform)' == 'x64'">
