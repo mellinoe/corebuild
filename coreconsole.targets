@@ -4,7 +4,7 @@
   <Target Name="RenameCoreConsole" AfterTargets="CopyFilesToOutputDirectory"
           Condition="'$(OutputType)' == 'Exe' ">
     <CallTarget Targets="RenameCoreConsoleWindows" Condition="Exists('$(Outdir)CoreConsole.exe')" />
-    <CallTarget Targets="RenameCoreConsoleUnix" Condition="Exists('$(Outdir)CoreConsole')" />
+    <CallTarget Targets="RenameCoreConsoleUnix" Condition="Exists('$(Outdir)coreconsole')" />
   </Target>
 
   <!-- If CoreConsole.exe is being used, rename it and the actual project's exe to their correct names -->
@@ -15,7 +15,8 @@
 
   <Target Name="RenameCoreConsoleUnix">
     <Move SourceFiles="$(Outdir)$(AssemblyName).exe" DestinationFiles="$(Outdir)$(AssemblyName).dll" />
-    <Move SourceFiles="$(Outdir)CoreConsole" DestinationFiles="$(Outdir)$(AssemblyName)" />
+    <Move SourceFiles="$(Outdir)coreconsole" DestinationFiles="$(Outdir)$(AssemblyName)" />
+    <Exec Command="chmod +x $(Outdir)$(AssemblyName)" />
   </Target>
 
 </Project>

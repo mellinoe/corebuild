@@ -44,6 +44,10 @@
     <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(OSEnvironment)' != 'Windows_NT'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
   <PropertyGroup >
     <BaseNuGetRuntimeIdentifier Condition="'$(TargetsWindows)' == 'true'">win10</BaseNuGetRuntimeIdentifier>
     <BaseNuGetRuntimeIdentifier Condition="'$(TargetsUbuntu)' == 'true'">ubuntu.14.04</BaseNuGetRuntimeIdentifier>
