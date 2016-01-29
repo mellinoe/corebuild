@@ -21,7 +21,7 @@
     <OptimizationGroup Condition="'$(OptimizationGroup)'==''">Debug</OptimizationGroup>
 
     <!-- Platform Helper Properties -->
-    <TargetsWindows>true</TargetsWindows>
+    <TargetsWindows Condition="$(Configuration.StartsWith('Windows'))">true</TargetsWindows>
     <TargetsUbuntu Condition="$(Configuration.StartsWith('Ubuntu'))">true</TargetsUbuntu>
     <TargetsOSX Condition="$(Configuration.StartsWith('OSX'))">true</TargetsOSX>
 
