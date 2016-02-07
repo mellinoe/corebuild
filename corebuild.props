@@ -28,6 +28,7 @@
     <OSTarget Condition="'$(TargetsWindows)' == 'true'">Windows</OSTarget>
     <OSTarget Condition="'$(TargetsUbuntu)' == 'true'">Ubuntu</OSTarget>
     <OSTarget Condition="'$(TargetsOSX)' == 'true'">OSX</OSTarget>
+    <OSTarget Condition="'$(OSTarget)' == ''">AnyOS</OSTarget>
   </PropertyGroup>
 
   <!-- Default OptimizationGroup Properties -->
@@ -44,7 +45,7 @@
     <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(OSEnvironment)' != 'Windows_NT'">
+  <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
     <DebugType>portable</DebugType>
   </PropertyGroup>
 

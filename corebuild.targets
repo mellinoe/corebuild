@@ -20,8 +20,8 @@
     <DnuRestoreCommand>/home/eric/.dotnet/sdks/dotnet-linux-x64.0.0.1-alpha-20151113-031621/dotnet restore</DnuRestoreCommand>
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.Targets" /> <!-- NOTE: CAPITALIZED -->
-  <Import Project="$(MSBuildToolsPath)\packageresolve.targets" />
   <Import Project="$(MSBuildThisFileDirectory)\coreconsole.targets" />
   <Import Project="$(MSBuildThisFileDirectory)\vsdebug.targets" />
 
+  <Import Project="$(MSBuildToolsPath)\packageresolve.targets" Condition="Exists('$(MSBuildToolsPath)\packageresolve.targets')  " />
 </Project>
