@@ -16,8 +16,8 @@
     <AutoUnifyAssemblyReferences>true</AutoUnifyAssemblyReferences>
 
     <!-- NOTE: FIX -->
-    <PackagesDir>/home/eric/.dnx/packages/</PackagesDir>
-    <DnuRestoreCommand>/home/eric/.dotnet/sdks/dotnet-linux-x64.0.0.1-alpha-20151113-031621/dotnet restore</DnuRestoreCommand>
+    <PackagesDir>$(HOME)/.nuget/packages/</PackagesDir>
+    <DnuRestoreCommand>$DOTNET_CMD restore</DnuRestoreCommand>
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.Targets" /> <!-- NOTE: CAPITALIZED -->
   <Import Project="$(MSBuildThisFileDirectory)\coreconsole.targets" />
