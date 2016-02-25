@@ -24,7 +24,7 @@
     <OSTarget Condition="'$(OSTarget)' == '' And $(Configuration.StartsWith('Ubuntu'))">Ubuntu</OSTarget>
     <OSTarget Condition="'$(OSTarget)' == '' And $(Configuration.StartsWith('OSX'))">OSX</OSTarget>
     <OSTarget Condition="'$(OSTarget)' == ''">AnyOS</OSTarget>
-</PropertyGroup>
+  </PropertyGroup>
 
   <!-- Default OptimizationGroup Properties -->
   <PropertyGroup Condition="'$(OptimizationGroup)' == 'Debug'">
