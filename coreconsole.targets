@@ -16,7 +16,7 @@
   <Target Name="RenameCoreConsoleUnix">
     <Move SourceFiles="$(Outdir)$(AssemblyName).exe" DestinationFiles="$(Outdir)$(AssemblyName).dll" />
     <Move SourceFiles="$(Outdir)coreconsole" DestinationFiles="$(Outdir)$(AssemblyName)" />
-    <Exec Command="chmod +x $(Outdir)$(AssemblyName)" Condition="'$(OS)' != 'Windows_NT'" />
+    <Exec Command="chmod +x $(Outdir)$(AssemblyName)" Condition="'$(BuildingInsideVisualStudio)' != 'true' Or '$(OS)' != 'Windows_NT'" />
   </Target>
 
 </Project>
