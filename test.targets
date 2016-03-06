@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <TestHost>corerun</TestHost>
+    <TestRunner>xunit.console.netcore.exe</TestRunner>
+    <XunitArgs>$(TargetPath)</XunitArgs>
+    <TestCommand>$(TestHost) $(TestRunner) $(XunitArgs)</TestCommand>
+  </PropertyGroup>
+
+  <Target Name="Test">
+    <Exec Command="$(TestCommand)"
+          WorkingDirectory="$(OutputPath)" />
+  </Target>
+
+    <!-- Set up the debug target for CoreCLR executables -->
+  <PropertyGroup Condition="$(AssemblyName.Contains('Test'))">
+    <StartWorkingDirectory Condition="'$(StartWorkingDirectory)' == ''">$(OutputPath)</StartWorkingDirectory>
+    <StartAction Condition="'$(StartAction)' == ''">Program</StartAction>
+    <StartProgram Condition="'$(StartProgram)' == ''">$(TestCommand)</StartProgram>
+    <DebugEngines>{2E36F1D4-B23C-435D-AB41-18E608940038}</DebugEngines>
+  </PropertyGroup>
+
+</Project>

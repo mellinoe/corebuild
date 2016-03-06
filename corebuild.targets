@@ -28,6 +28,7 @@
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)\coreconsole.targets" />
+  <Import Project="$(MSBuildThisFileDirectory)\test.targets" />
   <Import Project="$(MSBuildThisFileDirectory)\vsdebug.targets" />
 
   <Import Project="$(MSBuildToolsPath)\packageresolve.targets" Condition="Exists('$(MSBuildToolsPath)\packageresolve.targets')  " />
