@@ -10,7 +10,8 @@
 
   <Target Name="Test">
     <Exec Command="$(TestCommand)"
-          WorkingDirectory="$(OutputPath)" />
+          WorkingDirectory="$(OutputPath)"
+          Condition="'$(buildinginsidevisualstudio)' != 'true'" />
   </Target>
 
     <!-- Set up the debug target for CoreCLR executables -->
