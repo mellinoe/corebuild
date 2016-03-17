@@ -6,7 +6,8 @@
     <TestHost Condition="'$(OS)' != 'Windows_NT'">corerun</TestHost>
     <TestRunner>xunit.console.netcore.exe</TestRunner>
     <XunitArgs>$(TargetPath) -wait</XunitArgs>
-    <TestCommand>$(TestRunner) $(XunitArgs)</TestCommand>
+    <CommandArgs>$(TestRunner) $(XunitArgs)</CommandArgs>
+    <TestCommand>$(TestHost) $(CommandArgs)</TestCommand>
   </PropertyGroup>
 
   <Target Name="Test">
@@ -20,7 +21,7 @@
     <StartWorkingDirectory Condition="'$(StartWorkingDirectory)' == ''">$(OutputPath)</StartWorkingDirectory>
     <StartAction Condition="'$(StartAction)' == ''">Program</StartAction>
     <StartProgram Condition="'$(StartProgram)' == ''">$(OutputPath)$(TestHost)</StartProgram>
-    <StartArguments>$(TestCommand)</StartArguments>
+    <StartArguments>$(CommandArgs)</StartArguments>
     <DebugEngines>{2E36F1D4-B23C-435D-AB41-18E608940038}</DebugEngines>
   </PropertyGroup>
 
