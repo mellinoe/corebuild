@@ -10,7 +10,7 @@
 
   <!-- Set Configuration and Platform Defaults -->
   <PropertyGroup>
-    <DefaultNuGetRuntimeIdentifier>win10</DefaultNuGetRuntimeIdentifier>
+    <DefaultNuGetRuntimeIdentifier>win7</DefaultNuGetRuntimeIdentifier>
 
     <Platform Condition="'$(Platform)'=='' and '$(OutputType)' == 'Exe'">x64</Platform>
     <Platform Condition="'$(Platform)'==''">AnyCPU</Platform>
@@ -45,9 +45,9 @@
   </PropertyGroup>
 
   <PropertyGroup >
-    <BaseNuGetRuntimeIdentifier Condition="'$(OSTarget)' == 'Windows_NT'">win10</BaseNuGetRuntimeIdentifier>
-    <BaseNuGetRuntimeIdentifier Condition="'$(OSTarget)' == 'Ubuntu'">ubuntu.14.04</BaseNuGetRuntimeIdentifier>
-    <BaseNuGetRuntimeIdentifier Condition="'$(OSTarget)' == 'OSX'">osx.10.10</BaseNuGetRuntimeIdentifier>
+    <BaseNuGetRuntimeIdentifier Condition="'$(BaseNuGetRuntimeIdentifier)' == '' And '$(OSTarget)' == 'Windows_NT'">win10</BaseNuGetRuntimeIdentifier>
+    <BaseNuGetRuntimeIdentifier Condition="'$(BaseNuGetRuntimeIdentifier)' == '' And '$(OSTarget)' == 'Ubuntu'">ubuntu.14.04</BaseNuGetRuntimeIdentifier>
+    <BaseNuGetRuntimeIdentifier Condition="'$(BaseNuGetRuntimeIdentifier)' == '' And '$(OSTarget)' == 'OSX'">osx.10.10</BaseNuGetRuntimeIdentifier>
     <BaseNuGetRuntimeIdentifier Condition="'$(BaseNuGetRuntimeIdentifier)' == ''">$(DefaultNuGetRuntimeIdentifier)</BaseNuGetRuntimeIdentifier>
   </PropertyGroup>
 
