@@ -10,7 +10,7 @@
 
   <!-- Set Configuration and Platform Defaults -->
   <PropertyGroup>
-    <DefaultNuGetRuntimeIdentifier>win7</DefaultNuGetRuntimeIdentifier>
+    <DefaultNuGetRuntimeIdentifier>win10</DefaultNuGetRuntimeIdentifier>
 
     <Platform Condition="'$(Platform)'=='' and '$(OutputType)' == 'Exe'">x64</Platform>
     <Platform Condition="'$(Platform)'==''">AnyCPU</Platform>
