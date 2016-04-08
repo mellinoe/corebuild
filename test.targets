@@ -2,13 +2,23 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
+    <AdditionalXunitArgs Condition="'$(OS)' != 'Windows_NT'">$(AdditionalXunitArgs) -notrait category=nonlinuxtests</AdditionalXunitArgs>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <TestHost>corerun.exe</TestHost>
-    <TestHost Condition="'$(OS)' != 'Windows_NT'">corerun</TestHost>
+    <TestHost Condition="'$(OS)' != 'Windows_NT'">./corerun</TestHost>
     <TestRunner>xunit.console.netcore.exe</TestRunner>
-    <XunitArgs>$(TargetPath) -wait</XunitArgs>
+    <XunitArgs>$(TargetPath) $(AdditionalXunitArgs)</XunitArgs>
     <CommandArgs>$(TestRunner) $(XunitArgs)</CommandArgs>
     <TestCommand>$(TestHost) $(CommandArgs)</TestCommand>
   </PropertyGroup>
+
+  <Target Name="MakeCorerunExecutable"
+          AfterTargets="CopyFilesToOutputDirectory"
+          Condition="Exists('$(OutDir)corerun')">
+    <Exec Command="chmod +x $(OutDir)corerun" />
+  </Target>
 
   <Target Name="Test">
     <Exec Command="$(TestCommand)"
@@ -21,7 +31,7 @@
     <StartWorkingDirectory Condition="'$(StartWorkingDirectory)' == ''">$(OutputPath)</StartWorkingDirectory>
     <StartAction Condition="'$(StartAction)' == ''">Program</StartAction>
     <StartProgram Condition="'$(StartProgram)' == ''">$(OutputPath)$(TestHost)</StartProgram>
-    <StartArguments>$(CommandArgs)</StartArguments>
+    <StartArguments>$(CommandArgs) -wait</StartArguments>
     <DebugEngines>{2E36F1D4-B23C-435D-AB41-18E608940038}</DebugEngines>
   </PropertyGroup>
 
