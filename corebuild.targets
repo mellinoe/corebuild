@@ -2,12 +2,13 @@
   <!-- Project targeting defaults -->
   <PropertyGroup>
     <TargetFrameworkIdentifier Condition="'$(TargetFrameworkIdentifier)' == ''">None</TargetFrameworkIdentifier>
+    <NuGetTargetMoniker Condition="'$(NuGetTargetMoniker)' == ''">.NETStandard,Version=v1.5</NuGetTargetMoniker>
+    <NuGetTargetMoniker Condition="'$(TargetFrameworkIdentifier)' != 'None'">$(TargetFrameworkIdentifier)</NuGetTargetMoniker>
   </PropertyGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.Targets" /> <!-- NOTE: CAPITALIZED -->
 
   <PropertyGroup Condition="'$(TargetFrameworkIdentifier)' == 'None'">
-    <NuGetTargetMoniker>DNXCore,Version=v5.0</NuGetTargetMoniker>
     <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
     <NoStdLib>true</NoStdLib>
 
