@@ -23,7 +23,7 @@
   <Target Name="Test">
     <Exec Command="$(TestCommand)"
           WorkingDirectory="$(OutputPath)"
-          Condition="'$(buildinginsidevisualstudio)' != 'true'" />
+          Condition="'$(buildinginsidevisualstudio)' != 'true' And '$(SkipTests)' != 'true'" />
   </Target>
 
     <!-- Set up the debug target for CoreCLR executables -->
