@@ -52,7 +52,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PlatformTarget Condition="'$(Platform)' == 'x64'">x64</PlatformTarget>
+    <PlatformTarget Condition="'$(OutputType)' == 'Library'">AnyCPU</PlatformTarget>
+    <PlatformTarget Condition="'$(PlatformTarget)' == ''">$(Platform)</PlatformTarget>
     <PlatformTarget Condition="'$(PlatformTarget)' == ''">x64</PlatformTarget>
   </PropertyGroup>
 
